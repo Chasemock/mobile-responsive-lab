@@ -1,0 +1,129 @@
+html {
+    box-sizing: border-box
+   }
+   
+   /* The Universal Selector */
+   *, /* All elements*/
+   *::before, /* All ::before pseudo-elements */
+   *::after { /* All ::after pseudo-elements */
+    /* height & width will now include border & padding by default
+       but can be over-ridden as needed */
+    box-sizing: inherit;
+   }
+   
+   /* resets font size to be 62.5% of the user preference - 
+     in most browser configurations this will be 10px */
+   :root {
+    font-size: 62.5%
+   }
+   
+   body {
+    background-color: rgb(0, 0, 0);
+   /* Use a system font, if none are available use an available sans-sarif   font */
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    margin: 0;
+    color: whitesmoke;
+  display: grid;
+  font-size: 2.4rem;
+  font-weight: bold;
+  height: 100vh;
+  /* mobile first - single column */
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 70px auto 40px;
+  grid-template-areas: 
+    "header"
+    "footer"
+    "content"
+    "side";
+   }
+   header {
+    grid-area: header;
+    background-color: #6b1200;
+    grid-column: 1/5;
+  }
+  
+  /* footer {
+    background-color: #f98e71;
+    color: #3a001e;
+    grid-area: footer;
+  }  */
+  
+  aside {
+    background-color: #00a6fb;
+    color: #3c4856;
+    grid-column: 1/5 ;
+    grid-row: 3/4;
+  }
+  
+  main {
+    /* grid-area: content; */
+    grid-row: 2/3 ;
+    background-color: #0059a6;
+    grid-column: 1/5;
+    font-size: clamp(3.2rem, 6vw, 9rem);
+    /* grid-template-rows: 300px; */
+}
+ /* .footer{
+    height: 400px;
+    
+}  */
+ #desc{
+    display: grid;
+      height: 600px;  
+    grid-template-rows: 100px  ; 
+}
+#rate{
+    display: grid;
+    height: auto;
+    grid-template-rows:auto;
+} 
+#message{
+    justify-content: center;
+    background-color: rgb(0, 255, 0);
+    color: black;
+    grid-column: 3/5;
+    width: 180px;
+ } 
+#call{
+ justify-content: center;
+ background-color: rgb(3, 184, 33);
+ color: black;
+ grid-column: 1/3;
+ width: auto;
+ 
+}
+
+
+ header,
+footer,
+aside,
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} 
+
+
+
+
+@media only screen and (min-width: 768px) {
+    body {
+      /* tablet - two column display */
+      grid-template-columns: 1fr 4fr;
+      grid-template-rows: 50px auto 30px;
+      grid-template-areas: 
+        "header header"
+        "content rate"
+        "footer footer";
+    }
+  }
+  /* desktop */
+  @media only screen and (min-width: 1024px){
+    header,
+    footer,
+    aside{
+        background-color: white;
+        color: black
+    }    
+  }
